@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Veluxi - Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    
+    <!-- Syntax Hightlighter CSS -->
+    <link href="../css/prism.css" rel="stylesheet">
+  
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" class="logo">
+                        <img src="../images/logo.png" alt="logo" />
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <h4>UI and Languages</h4>
+                </li>
+                <li>
+                    <a href="#brand" class="cur">Brand/Project Name</a>
+                </li>
+                <li>
+                    <a href="#menu">Navigation Menu</a>
+                </li>
+                <li>
+                    <a href="#theme">Change Layout(RTL) and Theme</a>
+                </li>
+                <li>
+                    <a href="#youtube" class="cur">Youtube Config</a>
+                </li>
+                <li>
+                    <a href="#lang">Set Language</a>
+                </li>
+            </ul>
+            <a class="back" href="../index.html"><i class="glyphicon glyphicon-arrow-left"></i> Back to Main Docs</a>
+            <span class="copy">&copy; Copyright 2020 - Veluxi</span>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- main content -->
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+            <!-- BRANDING -->
+            <section class="row" id="brand">
+                <br /><br />
+                <div class="col-lg-10">
+                    <h1>Brand/Project Name</h1>
+                    <hr />
+                    <ul>
+                      <li>Open <code>/static/text/brand.js</code></li>
+                      <li>
+                        Here's bellow the available brand attribute
+                        <pre><code class="language-js">
+const brand = {
+  agency: {
+    name: 'Agency',
+    desc: 'Veluxi Agency - Vue Single Landing Page Template',
+    prefix: 'veluxi',
+    footerText: 'Veluxi Theme - All Rights Reserved 2020',
+    logoText: 'Veluxi Agency',
+    projectName: 'Agency Theme',
+    url: 'veluxi.ux-maestro.com/agency',
+    img: '/static/images/agency-logo.png',
+    notifMsg:
+      'Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.'
+  }
+}
+
+export default brand
+</code></pre>
+                      </li>
+                      <li>
+                        Those attribute will affect in HTML &lsaquo;head&rsaquo; content and other branding name
+                      </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- END -->
+
+            <!-- NAVIGATION -->
+            <section class="row" id="menu">
+                <br /><br />
+                <div class="col-lg-12">
+                    <h1>Navigation Menu</h1>
+                    This template use 2 type of menu. There are desktop and mobile version
+                    <hr />
+                    <ul>
+                      <li>For Desktop: <code>/components/Header/Header.vue</code></li>
+                      <li>For Mobile: <code>/components/Header/MobileMenu.vue</code></li>
+                      <li>
+                        Those components get the list data from <code>/components/Header/menu.js</code>
+                      </li>
+                      <li>
+                        <strong>Important: The menu name must be same as page name.</strong><br />
+                        Once create a new page, then want to add in navigation components (header and mobile sidebar),
+                        you can put the page in <code>/components/Header/menu.js</code>.
+                      </li>
+                      <li>
+                        Here's bellow the diagram routing menu to be displayed in UI Component
+                        <iframe frameborder="0" style="width:100%;height:700px;" src="./LuxiVue.html"></iframe>
+                      </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- END -->
+            
+            <!-- THEME -->
+            <section class="row" id="theme">
+              <div class="col-lg-10">
+                <h1>Change Layout(RTL) and Theme</h1>
+                <hr />
+                  <img src="../images/guide_theme.jpg" width="800" alt="theme" />
+                    <br /><br />
+                    This template has <strong>20 Themes with dark/light</strong> appearance.
+                    And also support for <strong>RTL</strong> direction.
+                    You can change the layout via theme panel but not permanently. To make the layout permanent just follow this step. <br /> <br />
+                    <ul>
+                      <li>Open <code>/config/vuetify.options.js</code></li>
+                      <li>
+                        Then change the <code>theme</code> value. Here's the available api:
+                        <table class="tg">
+                          <tbody>
+                            <tr>
+                              <th class="tg-yw4l">Key</th>
+                              <th class="tg-yw4l">Type</th>
+                              <th class="tg-yw4l">Available Value</th>
+                              <th class="tg-yw4l">Example</th>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>theme.themes:</code></td>
+                              <td valign="top">Object</td>
+                              <td>
+                                <code>'...palette.oceanBlue'</code>,
+                                <code>'...palette.greenLeaf'</code>,  <br />
+                                <code>'...palette.greyscale'</code>,
+                                <code>'...palette.cloud'</code>,  <br />
+                                <code>'...palette.violet'</code>,
+                                etc
+                              </td>
+                              <td valign="top"><code>theme = { ...palette.oceanBlue }</code></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>theme.dark:</code></td>
+                              <td valign="top">Boolean</td>
+                              <td>
+                                <code>true</code>,
+                                <code>false</code>
+                              </td>
+                              <td valign="top"><code>dark: true</code></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>rtl:</code></td>
+                              <td valign="top">Boolean</td>
+                              <td>
+                                <code>true</code>,
+                                <code>false</code>
+                              </td>
+                              <td valign="top"><code>rtl: true</code></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br />
+                        <strong>Here's the complete code, for greenLeaf color in dark mode with RTL direction</strong>
+                         <pre><code class="language-js">// file: config/vuetify.options.js
+export const theme = {
+  ...palette.oceanBlue
+}
+
+export default {
+  rtl: true,
+  theme: {
+    dark: true,
+    themes: {
+      light: {
+        ...theme
+      },
+      dark: {
+        ...theme
+      }
+    },
+    options: {
+      customProperties: true
+    }
+  }
+}
+    </code></pre>
+                      </li>
+                    </ul>
+                  <br /><br />
+              </div>
+            </section>
+            
+            
+            
+            <!-- Youtube -->
+            <section class="row" id="youtube">
+              <div class="col-lg-10">
+                <h1>Youtube Config</h1>
+                <hr />
+                <p>
+                  This template us <strong>Vue Youtube</strong> a simple vue component acting as a thin layer over the YouTube IFrame Player API.
+                  To use this feature we recommend to use https in production. If not there will be some warnings in browser console related cookies and security.
+                </p>
+                <p>
+                  You can disable this feature by open <code>/youtube.js</code> then set set <code>use: false</code>.
+                </p>
+              </div>
+            </section>
+            
+            <!-- End -->
+            
+            
+            
+            <!-- NAVIGATION -->
+            <section class="row" id="lang">
+                <br /><br />
+                <div class="col-lg-10">
+                    <h1>Set Language</h1>
+                    <hr />
+                    <img src="../images/lang.png" alt="lang" />
+                    <br /><br />
+                    <ul>
+                      <li>
+                        <h5>
+                          To set default language
+                        </h5>
+                        <ol>
+                          <li>Open <code>/nuxt.config.js</code></li>
+                          <li>change <code>defaultLocale: 'en'</code> to other initial locale i.e. <code>id</code> for Bahasa Indonesia</li>
+                          <li>And also for <code>vueI18n: { fallbackLocale: 'en' }</code> to other fallback locale i.e. <code>id</code> for Bahasa Indonesia</li>
+                        </ol>
+                      </li>
+                      <li>
+                        <h5>
+                          Add new language
+                        </h5>
+                        <ol>
+                          <li>
+                            By default, nuxt-i18n expects your translations to be organised as such by create new language JS library in <code>/static/lang/[localCode]/</code>
+                            <pre>
+└── static
+    └── lang
+        ├── en-US.js
+        └── de-DE.js</pre>
+                          </li>
+                          <li>You can check the available local code here <a href="https://github.com/ladjs/i18n-locales" target="_blank">https://github.com/ladjs/i18n-locales</a></li>
+                          <li>
+                            Then register it in <code>/static/lang/languages.js</code>
+                            <pre><code class="language-js">
+export default [
+  {
+    code: 'de',
+    iso: 'de-DE',
+    name: 'Deutch',
+    file: 'de-DE.js',
+    dir: 'ltr'
+  },
+  {
+    code: 'en',
+    iso: 'en-US',
+    name: 'English',
+    file: 'en-US.js',
+    dir: 'ltr'
+  }
+]
+    </code></pre>
+                          </li>
+                        </ol>
+                      </li>
+                      <li>
+                            <h5>
+                              Put the messages to the Vue Components
+                            </h5>
+                            <ol>
+                              <li>Pick one of sample <strong>Components</strong> with cointaining text, i.e <code>/componens/Footer.vue</code></li>
+                              <li>Basically the message return is <strong>String</strong>. And next step is replace/add every string in components</li>
+                              <li>
+                                Add a translated text inside components <br />
+                                <pre>
+                                  <code class="language-js">
+&lt;p&gt;
+  {{ $t('agencyLanding.footer_paragraph') }}
+&lt;/p&gt;
+                                  </code>
+                                </pre>
+                              </li>
+                              <li>
+                                Then open your translated page.
+                              </li>
+                            </ol>
+                          </li>
+                    </ul>
+                </div>
+            </section>
+          </div>
+        </div>
+        <!-- END -->
+      
+      <br /><br />
+            <!-- END -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+  
+    <!-- Syntax Highligher -->
+    <script src="../js/prism.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.bundle.js"></script>
+
+    <!-- Jquery scrollTo -->
+    <script src="../js/jquery.nav.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $(document).ready(function() {
+        	$('#sidebar-wrapper .sidebar-nav').onePageNav();
+        });
+    </script>
+
+</body>
+
+</html>
