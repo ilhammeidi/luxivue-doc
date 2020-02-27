@@ -1,2 +1,2 @@
-# luxi-next-docs
-Luxi Next Documentation
+# luxi-vue-docs
+Luxi Vue Documentation
