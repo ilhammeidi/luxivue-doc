@@ -145,8 +145,25 @@ export default brand
                     You can change the layout via theme panel but not permanently. To make the layout permanent just follow this step. <br /> <br />
                     <ul>
                       <li>Open <code>/config/vuetify.options.js</code></li>
+                      <li>Open the available theme list <code>/config/theme.txt</code></li>
                       <li>
-                        Then change the <code>theme</code> value. Here's the available api:
+                        Then change the <code>theme</code> value.
+                        For theme color, since nuxt.js cannot import external file in the config,
+                        so please pick and copy manually one of theme value from <code>/config/theme.txt</code> to <code>/config/vuetify.options.js</code> in <code>const palette</code>
+                      </li>
+                      <li>Example theme to pick:
+                        <pre><code class="language-js">greenLeaf: {
+  primary: colors.green.base, // primary main
+  primarylight: colors.green.lighten4, // primary light
+  primarydark: colors.green.darken4, // primary dark
+  secondary: colors.blueGrey.base, // secondary main
+  secondarylight: colors.blueGrey.lighten4, // secondary light
+  secondarydark: colors.blueGrey.darken3, // secondary dark
+  anchor: colors.green.base // link
+}</code></pre>
+                      </li>
+                      <li>
+                        And here's the available themes api:
                         <table class="tg">
                           <tbody>
                             <tr>
