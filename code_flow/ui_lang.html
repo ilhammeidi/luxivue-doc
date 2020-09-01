@@ -208,8 +208,19 @@ export default brand
                         <br />
                         <strong>Here's the complete code, for greenLeaf color in dark mode with RTL direction</strong>
                          <pre><code class="language-js">// file: config/vuetify.options.js
+const palette = {                        
+  greenLeaf: {
+    primary: colors.green.base, // primary main
+    primarylight: colors.green.lighten4, // primary light
+    primarydark: colors.green.darken4, // primary dark
+    secondary: colors.blueGrey.base, // secondary main
+    secondarylight: colors.blueGrey.lighten4, // secondary light
+    secondarydark: colors.blueGrey.darken3, // secondary dark
+    anchor: colors.green.base // link
+  }
+}
 export const theme = {
-  ...palette.oceanBlue
+  ...palette.greenLeaf
 }
 
 export default {
@@ -230,6 +241,15 @@ export default {
   }
 }
     </code></pre>
+                      </li>
+                      <li>
+                        <strong>!IMPORTANT</strong><br />
+                        <p>If you change the palette const, don't forget to update this following files as well </p>
+** Crytpo Theme: <code>/crypto-theme/components/GradientDeco/GradientDeco.vue</code><br />
+** Saas Theme: <code>/saas-theme/components/Testimonials/Testimonials.vue</code><br />
+** Hosting Theme: <code>/hosting-theme/components/Banner/Banner.vue</code><br />
+<p>Make sure the const palette has same value as vuetify.options const palette</p>
+
                       </li>
                     </ul>
                   <br /><br />
