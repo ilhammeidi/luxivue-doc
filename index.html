@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Veluxi - Vue JS Landing Page Collection</h3>
-                        <h4>Version 2.1.1</h4>
+                        <h4>Version 2.1.2</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 16 March 2020
                             </li>
                             <li>
-                                Latest Update : 8 Nov 2020
+                                Latest Update : 19 Dec 2020
                             </li>
                         </ul>
                     </div>
@@ -286,6 +286,21 @@
                                 <strong>Install Modules</strong><br />
 								Install module dependencies by run this script in terminal
 								<pre><code class="language-js">npm install</code></pre>
+                <div class="alert-warning font-italic">
+                  <p>If You're system:</p>
+                  <ul>
+                    <li>Mac OS 10.15 Catalina</li>
+                    <li>And Doesn't have X Code or Command Line Tools installed</li>
+                    <li>And Using Node version 14.xx or greater</li>
+                  </ul>
+                  <br />
+                  <p>
+                    <strong>Please install by using yarn.</strong> To avoid no-gyp error. 
+                    See the yarn official site <a href="https://classic.yarnpkg.com/en/docs/install">https://classic.yarnpkg.com/en/docs/install</a>
+                  </p>
+                </div>
+                <pre><code class="language-js">yarn install</code></pre>
+                
                                 It will download some necessary dependencies, and just wait until finish.
                                 <br />
                                 <img src="images/cmd1.png" width="600" alt="process" />
@@ -576,10 +591,44 @@ npm WARN slick-carousel@1.8.1 requires a peer of jquery@>=1.8.0 but none is inst
                             </div>
                           </div>
                           <div class="card">
+                            <div class="card-header" id="headingFour">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                                  Installation Problem: Error node-gyp or SCSS/SASS
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                              <div class="card-body">
+                                <ul>
+                                  <li>
+                                      <em>if got error node-gyp like this :</em><br />
+                                      <pre><code class="language-js">
+No receipt for 'com.apple.pkg.CLTools_Executables' found at '/'.
+gyp ERR! configure error 
+gyp ERR! stack Error: `gyp` failed with exit code: 1
+        </code></pre>
+                                      <p>That because you need to install X Code or Command Line Tools for X Code.</p>
+                                    </li>
+                                    <li>
+                                      <p>You can install X Code from AppStore or from <a href="https://developer.apple.com/download/more/" target="_blank">https://developer.apple.com/download/more/</a></p>
+                                      <p>Or you can install via terminal</p>
+                                    <pre><code class="language-js">xcode-select --install</code></pre>
+                                    </li>
+                                    <li>
+                                      If you don't want to install X Code at all, you can install by using Yarn to avoid no-gyp error. See the yarn official site <a href="https://classic.yarnpkg.com/en/docs/install">https://classic.yarnpkg.com/en/docs/install</a>
+                                  <pre><code class="language-js">yarn install</code></pre>
+                                    </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
                             <div class="card-header" id="headingTwo">
                               <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseThree">
-                                  Start Project Problem: Error SCSS
+                                  Start Project Problem: Error SCSS/SASS
                                 </button>
                               </h5>
                             </div>
@@ -1289,6 +1338,91 @@ head: {
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 2.1.2 – 20 Dec, 2020</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>
+                                      Fixed: Slick Carousel responsive
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Files changes: <br />
+                                      - packages/agency-theme/components/Services/Services.vue<br />
+                                      - packages/agency-theme/components/Services/services-style.scss <br />
+                                      - packages/agency-theme/components/Testimonials/Testimonials.vue <br />
+                                      - packages/agency-theme/components/Testimonials/testi-style.scss <br />
+                                      - packages/education-theme/components/PopularCourse/PopularCourse.vue <br />
+                                      - packages/education-theme/components/PopularCourse/popular-course-style.scss <br />
+                                      - packages/medical-theme/components/Facilities/Facilities.vue <br />
+                                      - packages/medical-theme/components/Facilities/facilities-style.scss <br />
+                                      - packages/medical-theme/components/Testimonials/Testimonials.vue <br />
+                                      - packages/profile-theme/components/Blog/Blog.vue <br />
+                                      - packages/profile-theme/components/Blog/blog-style.scss <br />
+                                      - packages/profile-theme/components/Services/Services.vue <br />
+                                      - packages/profile-theme/components/Services/services-style.scss <br />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Checkbox message aligment
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Files changes: <br />
+                                      - packages/[theme-name]/components/Forms/form-style.scss
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Missing map in Agency Theme <br />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      File changes: <br />
+                                      - packages/agency-theme/components/MapAddress/MapAddress.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Starter Project SSR rendering <br />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      File changes: <br />
+                                      - packages/stater-project/layouts/default.vue <br />
+                                      - packages/stater-project/assets/transition.scss <br />
+                                      - packages/stater-project/components/ScrollWrap/ScrollWrap.vue <br />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Node v14 packages compability <br />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      File changes: <br />
+                                      - packages/[theme-name]/package.json
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Docs: Add alternative installation for MacOS 10.15 Catalina with Node v14<br />
+                                  </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
