@@ -294,6 +294,8 @@ export default {
                           <li>Open <code>/nuxt.config.js</code></li>
                           <li>change <code>defaultLocale: 'en'</code> to other initial locale i.e. <code>id</code> for Bahasa Indonesia</li>
                           <li>And also for <code>vueI18n: { fallbackLocale: 'en' }</code> to other fallback locale i.e. <code>id</code> for Bahasa Indonesia</li>
+                          <li><em>For arabic with RTL layout, please change <code>dir: 'rtl'</code> in <code>head: { htmlAttrs: { dir: 'rtl' } }</code></em></li>
+                          <li>Final step open <code>app.html</code> and change the HTML <strong>lang</strong> attribute. Example <code>lang="id"</code></li>
                         </ol>
                       </li>
                       <li>
@@ -323,7 +325,7 @@ export default [
   },
   {
     code: 'en',
-    iso: 'en-US',
+    iso: 'eng-US',
     name: 'English',
     file: 'en-US.js',
     dir: 'ltr'
@@ -351,7 +353,7 @@ export default [
                                 </pre>
                               </li>
                               <li>
-                                Then open your translated page.
+                                Then run the server <code>npm run dev</code>.
                               </li>
                             </ol>
                           </li>
