@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Veluxi - Vue JS Landing Page Collection</h3>
-                        <h4>Version 3.0.2</h4>
+                        <h4>Version 3.0.3</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 16 March 2020
                             </li>
                             <li>
-                                Latest Update : 2 Oct 2022
+                                Latest Update : 5 Nov 2022
                             </li>
                         </ul>
                     </div>
@@ -591,7 +591,7 @@ module.exports = {
                             <div class="card-header" id="headingOne">
                               <h5 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Installation Problem: Dependencies Warning
+                                  Installation Problem: Dependencies Warning Deprecation
                                 </button>
                               </h5>
                             </div>
@@ -600,36 +600,79 @@ module.exports = {
                               <div class="card-body">
                                 <ul>
                                   <li>
-                                      <em>if got warning like this :</em><br />
+                                      When installation and you got error like this :<br />
                                       <pre><code class="language-js">
-npm WARN slick-carousel@1.8.1 requires a peer of jquery@>=1.8.0 but none is installed. You must install peer dependencies yourself.
+Could not resolve dependency:
+peer example-peer-package@"^3.2.0" from example-package@3.0.0
+example-package@3.0.0 from the root project
         </code></pre>
-                                      <strong>Don't worry the app will run as well</strong>
-                                      <p>For warning some of dependencies need another dependencies too, maybe once you install them, there’s some changes from the 3rd party vendor so probably it will make a warning to another dependencies.</p>
                                     </li>
                                     <li>
-                                      <em>if got an error with a dependencies installation</em>. Try to remove the all module
-                                      <code>node_modules/</code>. Then install again with <code>npm install</code>. 
-                                      If error still happen, please try to remove the problematic package <code>node_modules/</code> foler. 
-                                      After that try to install the problematic package manually. <code>npm install &lsaquo;package_name&rsaquo; --save-dev</code>
-                                    </li>
-                                    <li>
-                                      if still got an error. Try to update the problematic package instead.
+                                      Try to remove the error package (i.e example-package@3.0.0) from <code>package.json</code> Then install again. 
+                                      <pre><code class="language-js">npm install</code></pre>
+                                      After installation done, try to install the problematic package manually with <code>--legacy-peer-deps</code> options. 
+                                      <pre><code class="language-js">npm install example-package@3.0.0 --legacy-peer-deps</code></pre>
+                                      Example for multiple package
+                                      <pre><code class="language-js">npm install example-package@3.0.0 other-package@1.0.0 --legacy-peer-deps</code></pre>
                                     </li>
                                 </ul>
                               </div>
                             </div>
                           </div>
                           <div class="card">
-                            <div class="card-header" id="headingFour">
+                            <div class="card-header" id="headingFive">
                               <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+                                  Running Problem: Node Version >= 18
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                              <div class="card-body">
+                                <ul>
+                                  <li>
+                                      When you run npm run dev, build, etc, then you got error like this :br />
+                                      <pre><code class="language-js">
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:67:19)
+    at Object.createHash (node:crypto:130:10)
+        </code></pre>
+                                    </li>
+                                    <li>
+                                      Open terminal and paste these as described:
+                                      <ol>
+                                        <li>
+                                          Linux and macOS (Windows Git Bash)
+                                          <pre><code class="language-js">export NODE_OPTIONS=--openssl-legacy-provider</code></pre>
+                                        </li>
+                                        <li>
+                                          Windows command prompt
+                                          <pre><code class="language-js">set NODE_OPTIONS=--openssl-legacy-provider</code></pre>
+                                        </li>
+                                        <li>
+                                          Windows PowerShell
+                                          <pre><code class="language-js">$env:NODE_OPTIONS = "--openssl-legacy-provider"</code></pre>
+                                        </li>
+                                      </ol>
+                                    </li>
+                                    <li>
+                                      Then try <code>npm run dev</code> or <code>npm run build</code> again
+                                    </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingThree">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
                                   Installation Problem: Error node-gyp or SCSS/SASS
                                 </button>
                               </h5>
                             </div>
 
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                               <div class="card-body">
                                 <ul>
                                   <li>
@@ -1368,6 +1411,44 @@ head: {
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 3.0.3 – 5 Nov, 2022</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Fixed: Vue v2.7 warning and scroll issue
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File added <br>
+                                    - packages/[theme-name]/nuxt.config.js <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Fixed: Node v18 error start and build
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File added <br>
+                                    - packages/[theme-name]/package.json <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Update docs: Installation deprecation error<br>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
