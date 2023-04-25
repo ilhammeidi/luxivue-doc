@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Veluxi - Vue JS Landing Page Collection</h3>
-                        <h4>Version 3.0.3</h4>
+                        <h4>Version 3.1.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 16 March 2020
                             </li>
                             <li>
-                                Latest Update : 5 Nov 2022
+                                Latest Update : 26 Apr 2023
                             </li>
                         </ul>
                     </div>
@@ -139,7 +139,7 @@
                         <article>
                             <p>
                                 <strong>Veluxi</strong> Is a stunning modern template collection to present your startup &amp; your companies the way they truly deserve!. 
-                                Built with Vue, Nuxt Js, Vuetify, and Sketch files included.
+                                Built with Vue 3, Nuxt 3, Vuetify 3, and Sketch files included.
                                 Packed with an assortment fully adaptable templates for your Startup, Saas company, Agencies, Cloud business, 
                                 Architect company, Crypto currency, 4 Personal portfolios, even eCommerce shop.
                             </p>
@@ -170,7 +170,7 @@
                         <h3>Vue + Nuxt JS version</h3>
                         <ul class="styled">
                             <li>
-                                <strong>14 landing page templates</strong>. Built with one of most popular javascript library Vue.JS, Vuetify (Material Design) and Nuxt.JS with SSR
+                                <strong>14 landing page templates</strong>. Built with one of most popular javascript library Vue 3, Vuetify (Material Design) and Nuxt.JS with SSR
                             </li>
                             <li>
                               <strong>Various modern design</strong> Agency, Architect, Cryptocurrency, Fashion, Hosting, Mobile, Portfolio and Saas
@@ -201,9 +201,6 @@
                             </li>
                             <li>
                                 <strong>Starter Project</strong>. Build app from scratch without without being distracted from innate feature.
-                            </li>
-                            <li>
-                                <strong>Support mono repo </strong>. Modern architecture to managing modules in multiple project.
                             </li>
                             <li>
                                 <strong>Clean code</strong> maintained by eslint.
@@ -247,22 +244,25 @@
                         <pre>
 └── packages
     ├── [theme-name]
+    |   ├── .eslintrc.js
+    |   ├── .gitignore
+    |   ├── .npmrc
     |   ├── assets
     │   ├── components
+    │   ├── composable
     │   ├── config
+    │   ├── error.vue
+    │   ├── lang
     │   ├── layouts
-    │   ├── middleware
-    │   ├── pages
-    │   ├── plugin
-    │   ├── server
-    │   ├── static
-    │   ├── store
-    │   ├── app.html
-    │   ├── nuxt.config.js
+    │   ├── nuxt.config.ts
     │   ├── package.json
     │   ├── package-lock.json
+    │   ├── pages
+    │   ├── plugin
+    │   ├── preview.jpg
+    │   ├── public
     │   ├── README.md
-    │   ├── youtube.js
+    │   ├── tsconfig.json
                         </pre>
                       </div>
                     </div>
@@ -303,10 +303,8 @@
                 
                                 It will download some necessary dependencies, and just wait until finish.
                                 <br />
-                                <img src="images/cmd1.png" width="600" alt="process" />
                                 <br />
 							</li>
-                            <li>For installation by use lerna, please check this link <a href="#lerna">Installation using lerna</a></li>
 							<li>
                                 <strong>Run App</strong><br />
 								After build installation complete, then run the app.
@@ -416,26 +414,6 @@
                               </table>
                             </li>
 						</ul>
-                        <div id="lerna">
-                          <h3>Installation With Lerna</h3>
-                          Lerna is A tool for managing JavaScript projects with multiple packages.
-                          This template has 10 packages(projects) inside <code>packages/</code> folder.
-                          So to install them at once you can use lerna. See full docs of lerna here <a href="https://github.com/lerna/lerna">https://github.com/lerna/lerna</a>.
-                          Here's the installation guide:<br /><br />
-                          <ul>
-                            <li>
-                              Let's start by installing Lerna globally with npm:
-                              <pre><code class="language-js">npm install --global lerna</code></pre>
-                            </li>
-                            <li>Go to your root project (where you've unzipped the product)</li>
-                            <li>
-                              Then install all packages
-                              <pre><code class="language-js">lerna bootstrap</code></pre>
-                              Note: This process will take some minutes, because there's lot of modules to be installed.
-                              If got stuck for this step. Please install the packages(projects) one by one by use <code>npm install</code> instead.
-                            </li>
-                          </ul>
-                        </div>
                     </div>
                 </section>
                 <!-- END -->
@@ -458,11 +436,11 @@
 							</li>
                             <li>
                                 Then start the app
-								<pre><code class="language-js">npm start</code></pre>
+								<pre><code class="language-js">npm run preview</code></pre>
 							</li>
 							<li>Then navigate to <a href="http://localhost:8001" target="_blank">http://localhost:8001</a></li>
                             <li>
-                              Node: In Windows system you need to install <strong>win-node-env</strong>, because setting NODE_ENV=production before command babel doesn't work on Windows.
+                              Note: In Windows system you need to install <strong>win-node-env</strong>, because setting NODE_ENV=production before command babel doesn't work on Windows.
                               Here's the packages <a href="https://www.npmjs.com/package/win-node-env" target="_blank">https://www.npmjs.com/package/win-node-env</a>
                             </li>
 						</ul>
@@ -534,7 +512,10 @@ In order to test the app, install the following <a target="_blank" rel="noopener
 module.exports = {
   apps : [{
     name      : 'agency-vue',
-    script    : './node_modules/nuxt-start/bin/nuxt-start.js',
+    port      : '3000',
+    exec_mode : 'cluster',
+    instances : 'max',
+    script    : './.output/server/index.mjs',
     env: {
       NODE_ENV: 'development'
     },
@@ -569,11 +550,11 @@ module.exports = {
                         <br />
                         <hr />
                         <br />
-                        <h4>Deploy to NOW</h4>
+                        <h4>Deploy to Vercel</h4>
                         <p>Deploy your website quickly, without having to manually configure DNS, SSL, CDN or hosting. Integrate with your favorite tools, and bring your entire team of developers and designers closer together.</p>
                         <ul>
                           <li>Go to your projects, then <code>npm run generate</code>. The static HTML will be generated in <code>dist/</code> folder</li>
-                          <li>Next just run <code>now --prod</code> to delploy.</li>
+                          <li>Next just run <code>vercel</code> to delploy.</li>
                           <li>Wait until process finish. Once finish you will get live url yo access it.</li>
                         </ul>
                     </div>
@@ -774,27 +755,27 @@ Module build failed (from ./node_modules/sass-loader/lib/loader.js):
                         <hr />
                         <h4>Folder structure</h4>
                         <pre>
-project-theme                                                                          
-|   ├── assets
-│   ├── components
-│   ├── config
-│   ├── layouts
-│   ├── middleware
-│   ├── pages
-│   ├── plugin
-│   ├── server                                                                             
-│   ├───static                                                                              
-│   │   ├───favicons                                                                        
-│   │   ├───images                                                                          
-│   │   ├───locales                                                                       
-│   │   └───text                                                                            
-│   ├── store
-│   ├── app.html
-│   ├── nuxt.config.js
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── README.md
-│   ├── youtube.js                                                                           
+└── packages
+    ├── [theme-name]
+    |   ├── .eslintrc.js
+    |   ├── .gitignore
+    |   ├── .npmrc
+    |   ├── assets
+    │   ├── components
+    │   ├── composable
+    │   ├── config
+    │   ├── error.vue
+    │   ├── lang
+    │   ├── layouts
+    │   ├── nuxt.config.ts
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   ├── pages
+    │   ├── plugin
+    │   ├── preview.jpg
+    │   ├── public
+    │   ├── README.md
+    │   ├── tsconfig.json                                                                        
                         </pre>
                         <h4>Code preview</h4>
                         <br />
@@ -813,7 +794,7 @@ project-theme
                           <div id="header-code" class="tab-pane fade in">
                             <br />
                             <h6>Header</h6>
-                            <p>You can put google analytics, font icon, embeded fonts, etc here.  <code>/nuxt.config.js</code></p>
+                            <p>You can put google analytics, font icon, embeded fonts, etc here.  <code>/nuxt.config.ts</code></p>
                             <img src="images/ss_code2.png" width="500" alt="code2" />
                           </div>
                           <div id="document-code" class="tab-pane fade in">
@@ -837,33 +818,33 @@ project-theme
                           <tbody>
                             <tr>
                               <td>UI Components</td>
-                              <td><strong>~/components</strong></td>
+                              <td><strong>@/components</strong></td>
                               <td>/components</td>
-                              <td><code>import Header from '~/components/Header'</code></td>
+                              <td><code>import Header from '@/components/Header'</code></td>
                             </tr>
                             <tr>
                               <td>Images</td>
-                              <td><strong>~/static/images</strong></td>
+                              <td><strong>@/assets/images</strong></td>
                               <td>static/images</td>
-                              <td><code>import imgAPI from '~/static/images/imgAPI'</code></td>
+                              <td><code>import imgAPI from '@/assets/images/imgAPI'</code></td>
                             </tr>
                             <tr>
                               <td>Dummy text and link</td>
-                              <td><strong>~/static/text</strong></td>
+                              <td><strong>@/assets/text</strong></td>
                               <td>static/text</td>
-                              <td><code>import brand from '~/static/text/brand'</code></td>
+                              <td><code>import brand from '@/static/text/brand'</code></td>
                             </tr>
                             <tr>
                               <td>Component Style Overider</td>
-                              <td><strong>~/assets/vendors</strong></td>
+                              <td><strong>@/assets/scss/vendors</strong></td>
                               <td>/assets/vendors</td>
-                              <td><code>import '~/assets/vendors/animate.css'</code></td>
+                              <td><code>import '@/assets/scss/vendors/animate.css'</code></td>
                             </tr>
                             <tr>
                               <td>And any your files</td>
-                              <td><strong>~/yourfolder</strong></td>
+                              <td><strong>@/yourfolder</strong></td>
                               <td>/yourfolder</td>
-                              <td><code>import '~/yourfolder/file';</code></td>
+                              <td><code>import '@/yourfolder/file';</code></td>
                             </tr>
                           </tbody>
                         </table>
@@ -902,7 +883,6 @@ project-theme
                               <strong>Run App</strong><br>
                               <pre class="language-js"><code class=" language-js">npm run dev</code></pre>
                               <br>
-                              <img src="images/cmd1.png" width="600" alt="process">
                               <br>
                               <em>INFO: <br>
                                   - Just run this script whenever you want start the project.<br>
@@ -988,15 +968,16 @@ project-theme
 &lt;/template&gt;
 
 &lt;script&gt;
-import brand from '~/static/text/brand'
+import { defineNuxtComponent } from '#app';
+import brand from '@/assets/text/brand'
 
-export default {
+export default defineNuxtComponent({
   head() {
     return {
       title: brand.starter.name + ' - About Page'
     }
   }
-}
+})
 &lt;/script&gt;
 
                               </code></pre>
@@ -1038,7 +1019,7 @@ export default {
                             <li>Open a <b>target page</b> where you want use it. Ex: Open <code>/pages/about.vue</code>. <em>(Example page that we've made in previous section)</em></li>
                             <li>
                               Import component form component folder<br />
-                              <pre><code class="language-js">import MyComponent from '../components/MyComponent'</code></pre>
+                              <pre><code class="language-js">import MyComponent from '@/components/MyComponent'</code></pre>
                             </li>
                             <li>
                               Then register it in components script
@@ -1070,10 +1051,11 @@ export default {                      <pre><code class="language-js">
 &lt;/template&gt;
 
 &lt;script&gt;
-import brand from '~/static/text/brand'
-import MyComponent from '../components/MyComponent
+import brand from '@/assets/text/brand'
+import MyComponent from '@/components/MyComponent
+import { defineNuxtComponent } from '#app';
 
-export default {
+export default defineNuxtComponent({
   components: {
     MyComponent
   },
@@ -1082,7 +1064,7 @@ export default {
       title: brand.starter.name + ' - About Page'
     }
   }
-}
+});
 &lt;/script&gt;
 </code></pre>
                                 </li>
@@ -1101,59 +1083,27 @@ export default {
                         <strong><em>NOTE: By enable eslint the running app process at beginning will slower.</em></strong><br><br>
                         Just follow this step to enable eslint<br>
                         <ul>
-                          <li>Go to <code>/nuxt.config.js</code></li>
+                          <li>Go to <code>/nuxt.config.ts</code></li>
                           <li>
                             Just uncomment this code bellow
-                            <pre class=" language-js"><code class=" language-js">module.exports = {
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-      // if (ctx.isDev && ctx.isClient) {
-        // config.module.rules.push({
-          // enforce: "pre",
-          // test: /\.(js|vue)$/,
-          // loader: "eslint-loader",
-          // exclude: /([node_modules, static])/,
-          // options: {
-          //   fix: false
-          // }
-        // });
-      // }
-    }
-  }
-}
+                            <pre class=" language-js"><code class=" language-js">export default defineNuxtConfig({
+  vite: {
+    plugins: [
+      // eslintPlugin(),
+    ]
+  },
+})
 </code></pre>
                           </li>
                           <li>
                             Then should become like this
-                            <pre class=" language-js"><code class=" language-js">module.exports = {
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: "pre",
-          test: /\.(js|vue)$/,
-          loader: "eslint-loader",
-          exclude: /([node_modules, static])/,
-          options: {
-            fix: false
-          }
-        });
-      }
-    }
-  }
-}
+                            <pre class=" language-js"><code class=" language-js">export default defineNuxtConfig({
+  vite: {
+    plugins: [
+      eslintPlugin(),
+    ]
+  },
+})
 </code></pre>
                           </li>
                           <li>
@@ -1174,7 +1124,7 @@ export default {
                     <ul>
                       <li>
                         <strong>Nuxt.js</strong>
-                        <a href="https://nuxtjs.org/guide">https://nuxtjs.org/guide</a>
+                        <a href="https://nuxt.com/">https://nuxt.com/</a>
                       </li>
                       <li>
                         <strong>Vuetify</strong>
@@ -1182,7 +1132,7 @@ export default {
                       </li>
                       <li>
                         <strong>nuxt-i18n </strong>
-                        <a href="https://nuxt-community.github.io/nuxt-i18n/">https://nuxt-community.github.io/nuxt-i18n/</a>
+                        <a href="https://i18n.nuxtjs.org/">https://i18n.nuxtjs.org/</a>
                       </li>
                       <li>
                         <strong>SCSS/SASS</strong>
@@ -1193,8 +1143,8 @@ export default {
                         <a href="https://developers.google.com/youtube/iframe_api_reference">https://developers.google.com/youtube/iframe_api_reference</a>
                       </li>
                       <li>
-                        <strong>Animate.css</strong>
-                        <a href="https://daneden.github.io/animate.css/">https://daneden.github.io/animate.css/</a>
+                        <strong>Carousel</strong>
+                        <a href="https://splidejs.com/integration/vue-splide/">https://splidejs.com/integration/vue-splide/</a>
                       </li>
                       <li>And many more. Check the all dependencies and the repository <a href="#credit">here</a></li>
                     </ul>
@@ -1220,7 +1170,7 @@ export default {
                         <h4>Material Font Icons</h4>
                         <ul>
                           <li>
-                            Please make sure Google Material Icons already embeded in <code>nuxt.config.js</code> in <code>head.link:</code>
+                            Please make sure Google Material Icons already embeded in <code>nuxt.config.ts</code> in <code>head.link:</code>
                             <br />
                             If not just embed this inside head tag
                             <pre><code class="language-markup">
@@ -1300,11 +1250,6 @@ head: {
                                 <td class="tg-yw4l">MIT</td>
                               </tr>
                               <tr>
-                                <td class="tg-yw4l">animate.css</td>
-                                <td class="tg-yw4l">https://www.npmjs.com/package/animate.css</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
                                 <td class="tg-yw4l">babel</td>
                                 <td class="tg-yw4l">https://www.npmjs.com/package/Babel</td>
                                 <td class="tg-yw4l">None</td>
@@ -1312,11 +1257,6 @@ head: {
                               <tr>
                                 <td class="tg-yw4l">eslint</td>
                                 <td class="tg-yw4l">https://www.npmjs.com/package/eslint</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-yw4l">express</td>
-                                <td class="tg-yw4l">https://github.com/expressjs/express</td>
                                 <td class="tg-yw4l">MIT</td>
                               </tr>
                               <tr>
@@ -1340,33 +1280,13 @@ head: {
                                 <td class="tg-yw4l">MIT</td>
                               </tr>
                               <tr>
-                                <td class="tg-yw4l">nuxt-mq</td>
-                                <td class="tg-yw4l">https://www.npmjs.com/package/nuxt-mq</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
                                 <td class="tg-yw4l">rtl-sass</td>
                                 <td class="tg-yw4l">https://www.npmjs.com/package/rtl-sass</td>
                                 <td class="tg-yw4l">ISC</td>
                               </tr>
                               <tr>
-                                <td class="tg-yw4l">vue-parallaxy</td>
-                                <td class="tg-yw4l">https://www.npmjs.com/package/vue-parallaxy</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
                                 <td class="tg-yw4l">vue-scrollactive</td>
                                 <td class="tg-yw4l">https://www.npmjs.com/package/vue-scrollactive</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-yw4l">vue-slick</td>
-                                <td class="tg-yw4l">https://www.npmjs.com/package/vue-slick</td>
-                                <td class="tg-yw4l">ISC</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-yw4l">vue-wow</td>
-                                <td class="tg-yw4l">https://www.npmjs.com/package/vue-wow</td>
                                 <td class="tg-yw4l">MIT</td>
                               </tr>
                               <tr>
@@ -1377,11 +1297,6 @@ head: {
                               <tr>
                                 <td class="tg-yw4l">vuetify</td>
                                 <td class="tg-yw4l">https://www.npmjs.com/package/vuetify</td>
-                                <td class="tg-yw4l">MIT</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-yw4l">webpack</td>
-                                <td class="tg-yw4l">https://github.com/webpack/webpack</td>
                                 <td class="tg-yw4l">MIT</td>
                               </tr>
                             </table>
@@ -1415,6 +1330,22 @@ head: {
                             <thead>
                               <tr>
                                 <th>
+                                    <strong>Version 3.1.0 – 26 Apr, 2023</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Upgrade to Vue 3, Nuxt 3 and Vuetify 3
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
                                     <strong>Version 3.0.3 – 5 Nov, 2022</strong>
                                 </th>
                               </tr>
@@ -1428,7 +1359,7 @@ head: {
                               <tr>
                                 <td>
                                     File added <br>
-                                    - packages/[theme-name]/nuxt.config.js <br />
+                                    - packages/[theme-name]/nuxt.config.ts <br />
                                 </td>
                               </tr>
                               <tr>
@@ -1477,7 +1408,7 @@ head: {
                               <tr>
                                 <td>
                                     File added <br>
-                                    - /packages/[theme-name]/nuxt.config.js <br>
+                                    - /packages/[theme-name]/nuxt.config.ts <br>
                                 </td>
                               </tr>
                             </tbody>
@@ -1563,7 +1494,7 @@ head: {
                                   <td>
                                       Files changes: <br />
                                       - packages/[theme-name]/package.json<br />
-                                      - packages/[theme-name]/nuxt.config.js<br />
+                                      - packages/[theme-name]/nuxt.config.ts<br />
                                       - packages/[theme-name]/plugins/i18n-config.js
                                   </td>
                                 </tr>
@@ -1662,7 +1593,7 @@ head: {
                                 <tr>
                                   <td>
                                       Files changes: <br />
-                                      - packages/[theme-name]/nuxt.config.js<br />
+                                      - packages/[theme-name]/nuxt.config.ts<br />
                                   </td>
                                 </tr>
                             </tbody>
