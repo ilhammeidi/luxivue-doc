@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Veluxi - Vue JS Landing Page Collection</h3>
-                        <h4>Version 3.1.3</h4>
+                        <h4>Version 3.2.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 16 March 2020
                             </li>
                             <li>
-                                Latest Update : 25 Sep 2023
+                                Latest Update : 9 Mar 2024
                             </li>
                         </ul>
                     </div>
@@ -431,14 +431,14 @@
                                 First you need to build the production assets first
 								<pre><code class="language-js">npm run build</code></pre>
 								It usually take longer time than development to generate and compress production code.
-								The generated files will be placed in <code>.nuxt/</code>
+								The generated files will be placed in <code>.output/</code>
                                 <img src="images/cmd2.png" width="800" alt="process" />
 							</li>
                             <li>
                                 Then start the app
 								<pre><code class="language-js">npm run preview</code></pre>
 							</li>
-							<li>Then navigate to <a href="http://localhost:8001" target="_blank">http://localhost:8001</a></li>
+							<li>Then navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
                             <li>
                               Note: In Windows system you need to install <strong>win-node-env</strong>, because setting NODE_ENV=production before command babel doesn't work on Windows.
                               Here's the packages <a href="https://www.npmjs.com/package/win-node-env" target="_blank">https://www.npmjs.com/package/win-node-env</a>
@@ -454,21 +454,21 @@
  <code class="language-js">npm run generate</code>
                         </pre>
                         <p>
-                          Now you can see the exported HTML content on a directory called <strong>dist/</strong> inside your project.
+                          Now you can see the exported HTML content on a directory called <strong>.output/public</strong> inside your project.
 
-That's a fully functioning static web app. You can deploy it to any static hosting service, and it will work fine. But before we do that, we need to test it out locally.
+That's a fully functioning static web app. You can deploy it to any static hosting service. But before we do that, we need to test it out locally.
 
 In order to test the app, install the following <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/serve">serve NPM module </a> globally:
                         </p>
                         <pre>
 <code class="language-js">npm install -g serve</code>
                         </pre>
-                        <p>After you've installed serve, run following commands from <code>/dist</code> directory</p>
+                        <p>After you've installed serve, run following commands from <code>/.output/public</code> directory</p>
                         <pre>
-<code class="language-js">serve -p 8080</code>
+<code class="language-js">serve -p 1234</code>
                         </pre>
                         <p>
-                          Now you can access your static app in http://localhost:8080. Everything should be working as usual.
+                          Now you can access your static app in http://localhost:1234.
                         </p>
                     </div>
                 </section>
@@ -1326,6 +1326,40 @@ head: {
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 3.2.0 – 9 Mar, 2024</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Refactor: create MainContainer component to collect global header and footer
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File added <br>
+                                    - packages/[theme-name]/components/MainContainer
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Chore: Use nuxt-link (&lt;v-btn :to="/"&gt;) for navigation
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File changes <br>
+                                    - packages/[theme-name]/components/Header/Header.vue <br />
+                                    - packages/[theme-name]/components/Error/Error.vue <br />
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
